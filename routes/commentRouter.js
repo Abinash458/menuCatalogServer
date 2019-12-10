@@ -25,7 +25,7 @@ commentRouter.route('/')
 .post(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
     if(req.body != null) {
         req.body.author = req.user._id;
-        Comments.creata(req.body)
+        Comments.create(req.body)
         .then((comment) => {
             Comments.findById(comment._id)
             .populate('author')
